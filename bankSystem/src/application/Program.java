@@ -12,39 +12,55 @@ public class Program {
         Scanner sc = new Scanner(System.in);
         Operations novaConta  = new Operations();
 
-        System.out.print("Enter Account number: ");
-        int numeroConta = sc.nextInt();
-        novaConta.setNumeroConta(numeroConta);
+        int flag = 0;
+        System.out.println("Bank System");
+        while (flag != 2){
+            System.out.println("");
+            System.out.println("[1] New account");
+            System.out.println("[2] Exit");
+            System.out.print(">>>");
+            flag = sc.nextInt();
 
-        System.out.print("Enter Account Holder: ");
-        novaConta.name = sc.next();
+            if (flag == 1){
+                System.out.print("Enter Account number: ");
+                int numeroConta = sc.nextInt();
+                novaConta.setNumeroConta(numeroConta);
 
-        System.out.print("Is there an initial deposit (y/n): ");
-        String yesNo = sc.next();
+                System.out.print("Enter Account Holder: ");
+                novaConta.name = sc.next();
 
-        double dinheiro = 0;
-        if (yesNo.equals("y")){
-            System.out.print("Enter a deposit value: ");
-            dinheiro = sc.nextDouble();
-            novaConta.deposito(dinheiro);
-        }
+                System.out.print("Is there an initial deposit (y/n): ");
+                String yesNo = sc.next();
 
-        System.out.println("Account data:");
-        System.out.println(novaConta.dadosShow());
+                double dinheiro = 0;
+                if (yesNo.equals("y")){
+                    System.out.print("Enter a deposit value: ");
+                    dinheiro = sc.nextDouble();
+                    novaConta.deposito(dinheiro);
+                }
 
-        System.out.print("Enter a deposit value: ");
-        dinheiro = sc.nextDouble();
-        novaConta.deposito(dinheiro);
+                System.out.println("Account data:");
+                System.out.println(novaConta.dadosShow());
 
-        System.out.println("Updated Account data:");
-        System.out.println(novaConta.dadosShow());
+                System.out.print("Enter a deposit value: ");
+                dinheiro = sc.nextDouble();
+                novaConta.deposito(dinheiro);
 
-        System.out.print("Enter a withdraw value: ");
-        dinheiro = sc.nextDouble();
-        novaConta.saque(dinheiro);
+                System.out.println("Updated Account data:");
+                System.out.println(novaConta.dadosShow());
 
-        System.out.println("Updated Account data:");
-        System.out.println(novaConta.dadosShow());
+                System.out.print("Enter a withdraw value: ");
+                dinheiro = sc.nextDouble();
+                novaConta.saque(dinheiro);
+
+                System.out.println("Updated Account data:");
+                System.out.println(novaConta.dadosShow());
+            }
+            }
+
+
+
+
 
         sc.close();
     }
